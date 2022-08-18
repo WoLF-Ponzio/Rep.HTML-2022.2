@@ -67,20 +67,31 @@
         .imagem-centralizada{
             text-align: center;
         }
-        div{
+        .div1{
             background-image: url("/Users/gabriel.ponzio/Pictures/Estrela.png");
-            background-size: cover;
+            background-size: contain;
+            background-position: center center;
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 10px;
+            
         }
+        .limitador {
+			max-width: 800px;
+			margin: 0px auto;
+		}
         body{
-            background-image: url("/Users/gabriel.ponzio/Pictures/Fundo90s.svg");
-            background-repeat: no-repeat;
-            background-size: cover; /*Cover serve para fazer a imagem cobrir a página de forma completa*/
+            background-image: url("/Users/gabriel.ponzio/Downloads/Noise-Texture.png");
+            background-repeat: repeat;
+            /*background-size: cover; /*Cover serve para fazer a imagem cobrir a página de forma completa*/
             font-family: 'Bitter', serif;
             font-size: larger;
         }
     </style>
 </head>
 <body>
+    <div class="limitador">
+    
     <h1 class="titulo1">
         Um Clássico Site dos anos 90
     </h1>
@@ -123,20 +134,17 @@
     <h1 class="titulo3">
         fundos
     </h1>
-        <div>
+        <div class="div1">
             <p class="span-verde imagem-centralizada">
-                Talvez pela falta de conteúdo, talvez pela falta de elementos e efeitos disponiveis no HTML e no CSS, as páginas usavam muitos, muito fundos!
-                <br>
+                Talvez pela falta de conteúdo, talvez pela falta de elementos e efeitos disponiveis no HTML e no CSS, as páginas usavam muitos, muito fundos!    
             </p>
 
             <p class="span-verde imagem-centralizada">
                 Por exemplo, este parágrafo!
-                <br>
             </p>
 
             <p class="span-verde imagem-centralizada">
                 Ele tem seu próprio fundo... combinando com o site, claro :)
-                <br>
             </p>
 
         </div>
@@ -154,6 +162,7 @@
             <br>do hotsite criado para o filme Space Jam, de 1996:
         </p>
         
+    <p class="imagem-centralizada">
         <ul class="imagem-centralizada span-branco">
             <li>
                 www.warnerbros.com/archive/spacejam/movie/jam.htm
@@ -162,5 +171,7 @@
                 www.spacejam.com/archive/spacejam/movie/jam.htm
             </li>
         </ul>
+    </p>
+    </div>
 </body>
 </html>
