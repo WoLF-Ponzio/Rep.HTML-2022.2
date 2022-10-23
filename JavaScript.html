@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript</title>
+</head>
+<body>
+
+	<div>
+		<label for="inputValorA">
+			Valor A
+		</label>
+		<input type="number" id="inputValorA" placeholder="Digite o valor A" />
+	</div>
+
+	<div>
+		<label for="selectOperacao">
+			Operação
+		</label>
+		<select id="selectOperacao">
+			<option value="">
+				Selecione uma operação...
+			</option>
+			<option value="1">
+				Soma
+			</option>
+			<option value="2">
+				Subtração
+			</option>
+			<option value="3">
+				Multiplicação
+			</option>
+			<option value="4">
+				Divisão
+			</option>
+		</select>
+	</div>
+
+	<div>
+		<label for="inputValorB">
+			Valor B
+		</label>
+		<input type="number" id="inputValorB" placeholder="Digite o valor B" />
+	</div>
+
+	<div>
+		<label for="inputResultado">
+			Resultado
+		</label>
+		<input type="number" id="inputResultado" readonly />
+	</div>
+
+	<button type="button" onclick="calcular()">
+		Calcular
+	</button>
+
+	<script>
+
+		// código!
+		function calcular() {
+			
+			// DOM!!!!
+			// Document Object Model
+			let inputValorA = document.getElementById("inputValorA");
+			let selectOperacao = document.getElementById("selectOperacao");
+			let inputValorB = document.getElementById("inputValorB");
+			let inputResultado = document.getElementById("inputResultado");
+
+			let valorA = parseInt(inputValorA.value);
+			let operacao = parseInt(selectOperacao.value);
+			let valorB = parseInt(inputValorB.value);
+
+			let resultado;
+
+			if (operacao == 1) {
+				resultado = valorA + valorB;
+			} else if (operacao == 2) {
+				resultado = valorA - valorB;
+			} else if (operacao == 3) {
+				resultado = valorA * valorB;
+			} else if (operacao == 4) {
+				resultado = valorA / valorB;
+			}
+
+			inputResultado.value = resultado;
+		}
+
+	</script>
+</body>
+</html>
