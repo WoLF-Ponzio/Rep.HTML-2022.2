@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Exercício-1</title>
+<style>
+    body{
+            font-family: 'Dosis', sans-serif;
+            color: white;
+            background-color: black;
+    }
+    .limitador{
+            max-width: 1300px;
+            margin: 0 auto;
+    }
+</style>
+</head>
+<body class="limitador">
+    
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-sm-8 offset-md-2">
+
+                <div>
+                
+                    <h1>
+                        Cadastro de jogos
+                    </h1>
+                
+                </div>
+            
+                <div>
+                    
+                        <div class="form-group">
+                          <label for="nomeDoJogo">Nome do Jogo</label>
+                          <input type="text" class="form-control" id="nome">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Descrição do Jogo</label>
+                          <input type="text" class="form-control" id="desc">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="ProdutoraDoJogo">Produtora do Jogo</label>
+                            <input type="text" class="form-control" id="prod">
+                          </div>
+                      
+                          <div class="form-group">
+                            <label for="AnoDePublicacao">Ano de Publicação</label>
+                            <input type="number" class="form-control" id="ano">
+                          </div>
+                      
+                          <div class="form-group">
+                            <label for="IdadeMinimaDoJogo">Idade minima do Jogo</label>
+                            <input type="number" class="form-control" id="idade">
+                          </div>
+                      
+                            <button type="submit" class="btn btn-primary" onclick="enviar()">Enviar</button>
+                      
+                      
+                  
+        <script>
+        
+        async function enviar() {
+
+            try {
+
+                let inputNome = document.getElementById("nome");
+                var nome = inputNome.value;
+                    if(!nome){
+                        alert("Nome inválido");
+                        return;
+                    }
+                
+                let inputDesc = document.getElementById("desc");
+                var descricao = inputDesc.value;
+                    if(!descricao){
+                        alert("Descrição Inválida");
+                        return;
+                    }
+                
+                let inputProd = document.getElementById("prod");
+                var produtora = inputProd.value;
+                    if(!produtora){
+                        alert("Produtora Inválida");
+                        return;
+                    }
+                
+                let inputAno = document.getElementById("ano");
+                var ano = parseInt(inputAno.value);
+                    if(!ano){
+                        alert("Ano Inválido");
+                        return;
+                    }else if(ano > 2022){
+                        alert("Não é possível cadastrar um jogo não lançado");
+                        return;
+                    }else if(ano < 1972){
+                        alert("Os jogos ainda não tinha sido inventados");
+                        return;
+                    }
+                
+                let inputIdade = document.getElementById("idade");
+                var idadeMinima = parseInt(inputIdade.value);
+                    if(!idadeMinima){
+                        alert("Idade Inválida");
+                        return;
+                    }else if(idadeMinima > 18 || idadeMinima < 0 ){
+                        alert("Digite uma idade válida (maior que 0, menor ou igual 18)");
+                        return;
+                    }
+
+                    let jogo = {
+                        "nome": nome,
+                        "descricao": descricao,
+                        "produtora": produtora,
+                        "ano": ano,
+                        "idadeMinima": idadeMinima
+                    };
+                        
+                    let opcoes = {
+                        
+                            method: "POST",
+                        
+                            body: JSON.stringify(jogo),
+                        
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        
+                    };
+                    
+
+                        
+                    let resposta = await fetch("https://academico.espm.br/testeapi/jogo/criar", opcoes);
+                    
+                        if (!resposta.ok) {
+                        
+                            alert("Ocorreu um erro ao cadastrar o jogo");
+                        
+                        } else {
+                        
+                            alert("Jogo criado com sucesso");
+                        
+                        }
+            
+            } catch (excecao) {
+                alert("Houve um erro de rede: " + excecao.message);
+            }
+        }
+
+
+        </script>
+
+    </div>
+
+</body>
+
+</html>
