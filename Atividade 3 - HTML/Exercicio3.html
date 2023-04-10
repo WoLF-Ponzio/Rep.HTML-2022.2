@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Exercício-1</title>
+<style>
+    body{
+            font-family: 'Dosis', sans-serif;
+            color: white;
+            background-color: black;
+    }
+    .limitador{
+            max-width: 1300px;
+            margin: 0 auto;
+    }
+    .aprovado{
+        color: green;
+    }
+    .naoAprovado{
+        color: red;
+    }
+</style>
+</head>
+<body class="limitador">
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <div>
+                
+                    <h1>
+                        Verificar Aprovação
+                    </h1>
+                
+                </div>
+            
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label for="nomeDoJogo">Pontuação Minima</label>
+                            <input type="number" class="form-control" id="pontuacaoMin">
+                          </div>
+
+                        <div class="form-group">
+                            <h3>Participante A</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1A">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2A">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante B</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1B">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2B">
+                        </div>
+                    </form>
+                      
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante C</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1C">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2C">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante D</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1D">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2D">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante E</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1E">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2E">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante F</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1F">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2F">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante G</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1G">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2G">
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <h3>Participante H</h3>
+                          <label for="nomeDoJogo">Nota 1</label>
+                          <input type="number" class="form-control" id="nota1H">
+                        </div>
+                    
+                        <div class="form-group">
+                          <label for="descricaoDoJogo">Nota 2</label>
+                          <input type="number" class="form-control" id="nota2H">
+                        </div>
+                    </form>
+                    
+                        <button type="submit" class="btn btn-primary" onclick="verificar()">Enviar</button>
+            
+                </div>
+            </div>
+
+            <script>
+                
+                function verificar(){
+
+                    let resultado = document.getElementById("resultado");
+
+                    let pontuacaoMin = document.getElementById("pontuacaoMin");
+                        if(isNaN(pontuacaoMin.value) || pontuacaoMin.value <= 0 || pontuacaoMin.value == null){
+                            alert("Insira um valor válido na pontuação mínima");
+                            resultado.innerHTML = "<h1>Erro! Tente novamente</h1>";
+                            return;
+                        }
+
+                    let nota1A = document.getElementById("nota1A");
+                    let nota2A = document.getElementById("nota2A");
+                    if(validar(nota1A.value,nota2A.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1B = document.getElementById("nota1B");
+                    let nota2B = document.getElementById("nota2B");
+                    if(validar(nota1B.value,nota2B.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1C = document.getElementById("nota1C");
+                    let nota2C = document.getElementById("nota2C");
+                    if(validar(nota1C.value,nota2C.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1D = document.getElementById("nota1D");
+                    let nota2D = document.getElementById("nota2D");
+                    if(validar(nota1D.value,nota2D.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1E = document.getElementById("nota1E");
+                    let nota2E = document.getElementById("nota2E");
+                    if(validar(nota1E.value,nota2E.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1F = document.getElementById("nota1F");
+                    let nota2F = document.getElementById("nota2F");
+                    if(validar(nota1F.value,nota2F.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1G = document.getElementById("nota1G");
+                    let nota2G = document.getElementById("nota2G");
+                    if(validar(nota1G.value,nota2G.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    let nota1H = document.getElementById("nota1H");
+                    let nota2H = document.getElementById("nota2H");
+                    if(validar(nota1H.value,nota2H.value) == false){
+                        resultado.innerHTML = "<h1>Nota do Participante A inválida! Tente novamente</h1>" 
+                        return;
+                    }
+
+                    resultado.innerHTML = checar(nota1A.value, nota2A.value, nota1B.value, nota2B.value,nota1C.value,nota2C.value,nota1D.value,nota2D.value,
+                    nota1E.value,nota2E.value,nota1F.value,nota2F.value,nota1G.value,nota2G.value,nota1H.value,nota2H.value, pontuacaoMin.value)
+                    
+                }
+                
+
+                function validar(input1, input2){
+
+                    if(isNaN(input1) || input1 < 0 || input1 == null){
+                        alert("Nota inválida 1");
+                        return false;
+                    }else if (isNaN(input1) || input1 < 0 || input1 == null){
+                        alert("Nota inválida 2");
+                        return false;
+                    }
+                    
+                    
+                }
+
+
+                function checar(a1,a2,b1,b2,c1,c2,d1,d2,e1,e2,f1,f2,g1,g2,h1,h2, pontMin){
+
+                    var texto = " ";
+
+                    let letra = ["A","B","C","D","E","F","G","H"];
+
+                    let notas = [parseInt(a1) + parseInt(a2),parseInt(b1) + parseInt(b2),parseInt(c1) + parseInt(c2),parseInt(d1) + parseInt(d2),parseInt(e1) + parseInt(e2),parseInt(f1) + parseInt(f2), parseInt(g1) + parseInt(g2), parseInt(h1) + parseInt(h2)];
+
+                        for (let i = 0; i < notas.length; i++) {
+                            if(notas[i] >= pontMin){
+                                texto += "<h1 class='aprovado'>O aluno " + letra[i] + " está aprovado!</h1>";
+
+                            }else{
+                                texto += "<h1 class='naoAprovado'>O aluno " + letra[i] + " não foi aprovado!</h1>";
+                            }
+                        }
+
+                    return texto;    
+                }
+
+            </script>
+
+            <div class="col-sm-6" id="resultado">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
