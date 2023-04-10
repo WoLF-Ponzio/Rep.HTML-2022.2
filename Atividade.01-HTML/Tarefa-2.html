@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: 'Dosis', sans-serif;
+            background-image:url("Background2.jpg");
+            background-size: cover;
+        }
+        .limitador{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        img{
+            max-width: 100%;
+        }
+        .secao-1{
+            padding-top: 30px;
+        }
+        .input-senha{
+            font-style: italic;
+            display: inline-block;
+            padding: 5px 5px;
+            border-radius: 50px;
+        }  
+        .espacamento{
+            padding-bottom: 15px;
+            padding-top: 5px;
+        } 
+    </style>
+</head>
+<body>
+
+    <div class="limitador">
+
+        <div class="container-fluid">
+
+            <div class="row secao-1">
+
+                <div class="col-sm-12">
+                    
+                    
+                    <div class="espacamento">
+                        <label for="Senha">Senha: </label>
+                        <input class="input-senha" type="number" placeholder="Digite a Senha" id="Senha">
+                    </div>
+                        
+
+                    
+                    
+
+
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mb-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(7)">7</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(8)">8</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(9)">9</button>
+                            </div>
+                        </div>
+
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mb-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(4)">4</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(5)">5</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(6)">6</button>
+                            </div>
+                        </div>
+
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mb-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(1)">1</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(2)">2</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(3)">3</button>
+                            </div>
+                        </div>
+                    
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mb-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="add(0)">0</button>
+                              <button type="button" class="btn btn-outline-secondary" id="button" onclick="validar()">Validar</button>
+                            </div>
+                        </div>
+        
+                    <script type="text/javascript">
+
+                        function add(button){
+                            let Senha = document.getElementById("Senha");
+                            if(Senha.value === ''){
+                                Senha.value = button;
+                                console.log(Senha);
+                                return;
+                            }else{
+                                Senha.value += button;
+                            }
+
+                            console.log(Senha);
+                        }
+
+                        function validar(){
+                            let Senha = document.getElementById("Senha");
+                            let resultado = document.getElementById("resultado");
+
+                            if(Senha.value === '1234'){
+                                resultado.innerHTML = "Sucesso! Senha Correta"
+                            }else{
+                                resultado.textContent = "Tente novamente! Senha Incorreta!"
+                            }
+                        }
+                        
+                    </script>
+                
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="alert alert-primary" role="alert">
+                        <span id="resultado"></span>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    
+        
+    </div>
+
+</body>
+</html>
