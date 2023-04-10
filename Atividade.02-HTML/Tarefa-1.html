@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: 'Dosis', sans-serif;
+            background-image:url("Background2.jpg");
+            background-size: cover;
+        }
+        .limitador{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        img{
+            max-width: 100%;
+        }
+        .titulo{
+            text-align: center;
+            color: black;
+        }
+        .padding{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .texto{
+            text-align: center;
+        }
+        .verificar{
+            background-color: rgb(132, 218, 132);
+            color: black;
+            display: inline-block;
+            padding: 5px 5px;
+            border-radius: 50px;
+        }
+        .error{
+            color: red;
+            text-decoration: underline;
+        }
+        .teste{
+            background-color: whitesmoke;
+            padding: 20px 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="limitador">
+
+    <div class="container-fluid">
+
+        <div class="row padding">
+
+            <div class="col-sm-12">
+
+                <h1 class="titulo">
+                    Listagem de Cartas
+                </h1>
+
+                <p class="texto">
+                    Digite a numeração das cartas nos campos abaixo
+                </p>
+
+            </div>
+
+        </div>
+        
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <div>
+
+                    <h3>
+                        Valor da Carta 1
+                    </h3>
+                    <input type="number" id="botao1">
+
+                    <h3>
+                        Valor da Carta 2
+                    </h3>
+                    <input type="number" id="botao2">
+
+                    <h3>
+                        Valor da Carta 3
+                    </h3>
+                    <input type="number" id="botao3">
+
+                    <h3>
+                        Valor da Carta 4
+                    </h3>
+                    <input type="number" id="botao4">
+
+                    <h3>
+                        Valor da Carta 5
+                        
+                    </h3>
+                    <input type="number" id="botao5">
+                    
+                    <p class="padding">
+                        <button class="verificar" type="button" onclick="checar()">Verificar Cartas</button>
+                    </p>
+
+                    <script type="text/javascript">
+
+                        function checar(){
+
+                            let botao1 = document.getElementById("botao1");
+                            let botao2 = document.getElementById("botao2");
+                            let botao3 = document.getElementById("botao3");
+                            let botao4 = document.getElementById("botao4");
+                            let botao5 = document.getElementById("botao5");
+                            
+                            let erro = document.getElementById("erro");
+                            let resultado = document.getElementById("resultado");
+
+                            let b1 = parseInt(botao1.value);
+                            if(b1 > 6 || b1 < 1 || isNaN(b1)){
+                                erro.textContent = "Carta 1 inválida!";
+                                return;
+                            }
+                            let b2 = parseInt(botao2.value);
+                            if(b2 > 6 || b2 < 1 || isNaN(b2)){
+                                erro.textContent = "Carta 2 inválida!";
+                                return;
+                            }
+                            let b3 = parseInt(botao3.value);
+                            if(b3 > 6 || b3 < 1 || isNaN(b3)){
+                                erro.textContent = "Carta 3 inválida!";
+                                return;
+                            }
+                            let b4 = parseInt(botao4.value);
+                            if(b4 > 6 || b4 < 1 || isNaN(b4)){
+                                erro.textContent = "Carta 4 inválida!";
+                                return;
+                            }
+                            let b5 = parseInt(botao5.value);
+                            if(b5 > 6 || b5 < 1 || isNaN(b5)){
+                                erro.textContent = "Carta 5 inválida!";
+                                return;
+                            }else{
+                                erro.textContent = null;
+                            }
+
+                            resultado.textContent = "Carta nº " + ((b1 + b2 + b3 + b4 + b5) - 21) * - 1;
+
+                        }
+
+                </script> 
+
+                </div>
+                
+                <div>
+
+                    <h3 class="error" id="erro"></h3>
+
+                </div>
+                
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="teste">
+
+                    <h1 class="titulo">
+                        A Carta faltando é:
+                    </h1>
+
+                    <h3 class="texto" id="resultado"></h3>
+                </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
